@@ -1,18 +1,33 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} /> -->
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-red-500">
-		<ul>
-
+	<body class="bg-wdbg font-W98 h-screen p-8 flex">
+		<ul class="flex flex-col gap-8 text-white items-center">
+			<li class="flex flex-col items-center gap-1">
+				<img src="/corbeille.png" alt="corbeille" class="w-16"/>
+				<p>Corbeille</p>
+			</li>
+			<li class="flex flex-col items-center gap-1">
+				<img src="/projets.png" alt="projets" class="w-16"/>
+				<p>Projets</p>
+			</li>
+			<li class="flex flex-col items-center gap-1">
+				<img src="/a_propos.png" alt="a_propos" class="w-16"/>
+				<p>A propos</p>
+			</li>
+			<li class="flex flex-col items-center gap-1">
+				<img src="/contact.png" alt="contact" class="w-16"/>
+				<p>Contact</p>
+			</li>
 		</ul>
 	</body>
 </html>

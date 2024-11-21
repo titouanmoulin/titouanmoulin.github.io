@@ -5,7 +5,10 @@ export default {
 		extend: {
 			colors : {
 				wdbg : "#008080"
-			}
+			},
+			fontFamily :{
+				'W98' : 'w98'
+			  }
 		},
 	},
 	plugins: [],
