@@ -4,7 +4,9 @@ export default {
 	theme: {
 		extend: {
 			colors : {
-				wdbg : "#008080"
+				wdbg : "#008080",
+				wdbar : "#000278",
+				wdwd : "#BEBEBE",
 			},
 			fontFamily :{
 				'W98' : 'w98'

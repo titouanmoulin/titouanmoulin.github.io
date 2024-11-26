@@ -1,0 +1,46 @@
+---
+import WindowBar from "./WindowBar.astro";
+
+const {id} = Astro.props
+
+---
+
+<section id={id}
+    class="border-4 border-r-black border-b-black h-fit absolute hidden draggable">
+    <WindowBar fenetre="Contact" image="/contact.png" alt="contact"/>
+    <div class="bg-wdwd p-6 flex gap-6">
+        <ul class="flex flex-col gap-1">
+            <li>
+                <span class="font-bold">Email :</span> titouanmoulin3@gmail.com
+            </li>
+            <li><span class="font-bold">Tel :</span> 06 44 78 74 05</li>
+            <li class="mt-4">
+                <span class="font-bold">Réseau sociaux :</span>
+                <ul>
+                    <li>Linkedin</li>
+                    <li>Behance</li>
+                </ul>
+            </li>
+        </ul>
+        <article class="border-4 border-l-black border-t-black p-4 flex flex-col gap-4 items-end">
+            <form>
+                <ul class="flex flex-col gap-2 items-end">
+                    <li>
+                        <label>Nom :</label>
+                        <input type="text" class="border-4 border-l-black border-t-black"/>
+                    </li>
+                    <li>
+                        <label>Email :</label>
+                        <input type="text" class="border-4 border-l-black border-t-black"/>
+                    </li>
+                    <li class="flex gap-1">
+                        <label>Message :</label>
+                        <textarea class="border-4 border-l-black border-t-black h-24 resize-none"/>
+                    </li>
+                </ul>
+            </form>
+            <button class="border-4 border-r-black border-b-black px-3 w-fit">Envoyer</button>
+        </article>
+    </div>
+</section>
+

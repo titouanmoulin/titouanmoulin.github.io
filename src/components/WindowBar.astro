@@ -1,0 +1,21 @@
+---
+interface Props {
+	fenetre: string;
+	image: string;
+    alt: string;
+}
+
+const {fenetre, image, alt} = Astro.props;
+---
+
+<section id="wbar" class="bg-wdbar flex items-center justify-between p-1">
+    <article class="flex gap-2 items-center">
+        <img src={image} alt={alt} class="h-6" />
+        <p class="text-lg text-white font-bold">{fenetre}</p>
+    </article>
+    <ul class="flex gap-1">
+        <li><img src="/cacher.svg" alt="cacher" /></li>
+        <li><img src="/agrandir.svg" alt="cacher" /></li>
+        <li class="fermer"><img src="/fermer.svg" alt="cacher" /></li>
+    </ul>
+</section>

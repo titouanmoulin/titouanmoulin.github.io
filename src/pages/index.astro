@@ -1,7 +1,8 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+import WorkList from "../components/WorkList.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -13,21 +14,83 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	<body class="bg-wdbg font-W98 h-screen p-8 flex">
 		<ul class="flex flex-col gap-8 text-white items-center">
 			<li class="flex flex-col items-center gap-1">
-				<img src="/corbeille.png" alt="corbeille" class="w-16"/>
+				<img src="/corbeille.png" alt="corbeille" class="w-16" />
 				<p>Corbeille</p>
 			</li>
-			<li class="flex flex-col items-center gap-1">
-				<img src="/projets.png" alt="projets" class="w-16"/>
+			<li class="flex flex-col items-center gap-1" id="projets">
+				<img src="/projets.png" alt="projets" class="w-16" />
 				<p>Projets</p>
 			</li>
-			<li class="flex flex-col items-center gap-1">
-				<img src="/a_propos.png" alt="a_propos" class="w-16"/>
+			<li class="flex flex-col items-center gap-1" id="apropos">
+				<img src="/a_propos.png" alt="a_propos" class="w-16" />
 				<p>A propos</p>
 			</li>
-			<li class="flex flex-col items-center gap-1">
-				<img src="/contact.png" alt="contact" class="w-16"/>
+			<li class="flex flex-col items-center gap-1" id="contact">
+				<img src="/contact.png" alt="contact" class="w-16" />
 				<p>Contact</p>
 			</li>
 		</ul>
+		<WorkList id="wlist"/>
+		<About id="about"/>
+		<Contact id="cont"/>
 	</body>
 </html>
+<script>
+	const contact = document.querySelector("#contact");
+	const cont = document.getElementById("cont");
+
+	const apropos = document.querySelector("#apropos");
+	const about = document.getElementById("about");
+
+	const projets = document.querySelector("#projets");
+	const wlist = document.getElementById("wlist");
+
+	contact?.addEventListener("click", () => {
+		cont?.classList.remove("hidden");
+	});
+
+	apropos?.addEventListener("click", () => {
+		about?.classList.remove("hidden");
+		console.log(about);
+	});
+
+	projets?.addEventListener("click", () => {
+		wlist?.classList.remove("hidden");
+	});
+
+	const fermer = document.querySelectorAll(".fermer");
+
+	fermer.forEach((f) => {
+		f.addEventListener("click", (e) => {
+			// console.log(e?.currentTarget?.parentElement?.parentElement?.parentElement);
+			e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add("hidden");
+		});})
+
+	document.querySelectorAll('.draggable').forEach(draggable => {
+		let isDragging = false;
+		let startX, startY, initialTop, initialRight;
+
+		draggable.addEventListener('mousedown', (e) => {
+			isDragging = true;
+			startX = e.clientX;
+			startY = e.clientY;
+			const rect = draggable.getBoundingClientRect();
+			initialTop = rect.top;
+			initialRight = window.innerWidth - rect.right;
+			e.preventDefault();
+		});
+
+		document.addEventListener('mousemove', (e) => {
+			if (isDragging) {
+				const deltaX = e.clientX - startX;
+				const deltaY = e.clientY - startY;
+				draggable.style.top = `${initialTop + deltaY}px`;
+				draggable.style.right = `${initialRight - deltaX}px`;
+			}
+		});
+
+		document.addEventListener('mouseup', () => {
+			isDragging = false;
+		});
+	});
+</script>

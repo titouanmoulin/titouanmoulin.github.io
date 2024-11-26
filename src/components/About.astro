@@ -1,0 +1,36 @@
+---
+import WindowBar from './WindowBar.astro';
+
+const {id} = Astro.props
+---
+
+<section id={id} class="border-4 border-r-black border-b-black w-[30rem] h-fit absolute hidden draggable">
+    <WindowBar fenetre="A propos" image="/a_propos.png" alt="a_propos"/>
+    <div class="bg-wdwd p-6 flex flex-col gap-6">
+        <p>Je m'appelle Titouan Moulin, étudiant en troisième année de BUT Métiers du Multimédia et de l’Internet (MMI). Passionné par la création sous toutes ses formes, je m’épanouis dans des projets mêlant design, communication et développement. Curieux et toujours en quête d’innovation, j’aime explorer de nouvelles idées pour concevoir des expériences uniques et captivantes.</p>
+        <article class="flex gap-3 items-center">
+            <h3 class="font-bold">Téléchargez mon CV ici :</h3>
+            <button class="border-4 border-r-black border-b-black px-3">CV</button>
+        </article>
+        <section class="border-4 border-l-black border-t-black p-4 flex flex-col gap-4 overflow-scroll h-80">
+            <p>Mes coups de coeurs :</p>
+            <ul class="grid grid-cols-3 gap-4">
+                <li><img src="/cdc/music1.png" alt="jigsawfallingintoplaces" class="w-full"></li>
+                <li><img src="/cdc/music2.png" alt="letrangehistoiredemranderson" class="w-full"></li>
+                <li><img src="/cdc/music3.png" alt="wehadgoodtimestogether" class="w-full"></li>
+                <li><img src="/cdc/film1.png" alt="childrenofmen" class="w-full"></li>
+                <li><img src="/cdc/film2.png" alt="porcorosso" class="w-full"></li>
+                <li><img src="/cdc/film3.png" alt="oldboy" class="w-full"></li>
+                <li><img src="/cdc/serie1.png" alt="breakingbad" class="w-full"></li>
+                <li><img src="/cdc/serie2.png" alt="bettercaulsaul" class="w-full"></li>
+                <li><img src="/cdc/serie3.png" alt="arcane" class="w-full"></li>
+                <li><img src="/cdc/manga1.png" alt="onepiece" class="w-full"></li>
+                <li><img src="/cdc/manga2.png" alt="20thcenturyboys" class="w-full"></li>
+                <li><img src="/cdc/manga3.png" alt="jojosbizarreadventure" class="w-full"></li>
+                <li><img src="/cdc/jeux1.png" alt="yakuza0" class="w-full"></li>
+                <li><img src="/cdc/jeux2.png" alt="hollowknight" class="w-full"></li>
+                <li><img src="/cdc/jeux3.png" alt="darksouls3" class="w-full"></li>
+            </ul>
+        </section>
+    </div>
+</section>
