@@ -1,15 +1,15 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 import WorkList from "../components/WorkList.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import '../styles/global.css';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta charset="utf-8">
+		<title>Portfolio</title>
 	</head>
 	<body class="bg-wdbg font-W98 h-screen p-8 flex">
 		<ul class="flex flex-col gap-8 text-white items-center">
@@ -30,9 +30,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				<p>Contact</p>
 			</li>
 		</ul>
-		<WorkList id="wlist"/>
-		<About id="about"/>
-		<Contact id="cont"/>
+		<WorkList id="wlist" />
+		<About id="about" />
+		<Contact id="cont" />
 	</body>
 </html>
 <script>
@@ -63,14 +63,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 	fermer.forEach((f) => {
 		f.addEventListener("click", (e) => {
 			// console.log(e?.currentTarget?.parentElement?.parentElement?.parentElement);
-			e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add("hidden");
-		});})
+			e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
+				"hidden",
+			);
+		});
+	});
 
-	document.querySelectorAll('.draggable').forEach(draggable => {
+	document.querySelectorAll(".draggable").forEach((draggable) => {
+		const windowBar = draggable.querySelector("#wbar");
 		let isDragging = false;
 		let startX, startY, initialTop, initialRight;
 
-		draggable.addEventListener('mousedown', (e) => {
+		windowBar.addEventListener("mousedown", (e) => {
 			isDragging = true;
 			startX = e.clientX;
 			startY = e.clientY;
@@ -80,7 +84,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			e.preventDefault();
 		});
 
-		document.addEventListener('mousemove', (e) => {
+		document.addEventListener("mousemove", (e) => {
 			if (isDragging) {
 				const deltaX = e.clientX - startX;
 				const deltaY = e.clientY - startY;
@@ -89,7 +93,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 			}
 		});
 
-		document.addEventListener('mouseup', () => {
+		document.addEventListener("mouseup", () => {
 			isDragging = false;
 		});
 	});
