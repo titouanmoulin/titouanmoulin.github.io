@@ -15,8 +15,9 @@ const posts = (await getCollection('blog'))
                 posts.map((post) => (
 
                     <li>
-                        <a class="hover:cursor-custompointer" href={`/blog/${post.slug}/`}>
+                        <a class="hover:cursor-custompointer flex flex-col gap-2 items-center" href={`/blog/${post.slug}/`}>
                             <img width={720} height={360} src={post.data.heroImage} alt="" />
+                            <p>{post.data.title}</p>
                         </a>
                     </li>
                 ))
