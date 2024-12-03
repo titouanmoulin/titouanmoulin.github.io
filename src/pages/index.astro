@@ -11,23 +11,23 @@ import '../styles/global.css';
 		<meta charset="utf-8">
 		<title>Portfolio</title>
 	</head>
-	<body class="bg-wdbg font-W98 h-screen p-8 flex">
+	<body class="bg-wdbg font-W98 h-screen p-8 flex cursor-customdefault">
 		<ul class="flex flex-col gap-8 text-white items-center">
-			<li class="flex flex-col items-center gap-1">
+			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer">
 				<img src="/corbeille.png" alt="corbeille" class="w-16" />
-				<p>Corbeille</p>
+				<p class="text-base">Corbeille</p>
 			</li>
-			<li class="flex flex-col items-center gap-1" id="projets">
+			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer" id="projets">
 				<img src="/projets.png" alt="projets" class="w-16" />
-				<p>Projets</p>
+				<p class="text-base">Projets</p>
 			</li>
-			<li class="flex flex-col items-center gap-1" id="apropos">
+			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer" id="apropos">
 				<img src="/a_propos.png" alt="a_propos" class="w-16" />
-				<p>A propos</p>
+				<p class="text-base">A propos</p>
 			</li>
-			<li class="flex flex-col items-center gap-1" id="contact">
+			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer" id="contact">
 				<img src="/contact.png" alt="contact" class="w-16" />
-				<p>Contact</p>
+				<p class="text-base">Contact</p>
 			</li>
 		</ul>
 		<WorkList id="wlist" />
@@ -74,7 +74,7 @@ import '../styles/global.css';
 		let isDragging = false;
 		let startX, startY, initialTop, initialRight;
 
-		windowBar.addEventListener("mousedown", (e) => {
+		windowBar?.addEventListener("mousedown", (e) => {
 			isDragging = true;
 			startX = e.clientX;
 			startY = e.clientY;

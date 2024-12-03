@@ -6,9 +6,9 @@ const {id} = Astro.props
 ---
 
 <section id={id}
-    class="border-4 border-r-black border-b-black h-fit absolute hidden draggable">
+    class="border-4 border-r-black border-b-black md:h-fit md:w-fit absolute hidden draggable w-11/12 h-11/12">
     <WindowBar fenetre="Contact" image="/contact.png" alt="contact"/>
-    <div class="bg-wdwd p-6 flex gap-6">
+    <div class="bg-wdwd p-6 flex gap-6 flex-col md:flex-row">
         <ul class="flex flex-col gap-1">
             <li>
                 <span class="font-bold">Email :</span> titouanmoulin3@gmail.com
@@ -22,24 +22,24 @@ const {id} = Astro.props
                 </ul>
             </li>
         </ul>
-        <article class="border-4 border-l-black border-t-black p-4 flex flex-col gap-4 items-end">
-            <form>
-                <ul class="flex flex-col gap-2 items-end">
-                    <li>
+        <article class="border-4 border-l-black border-t-black p-5 flex flex-col gap-4 items-end">
+            <form class="w-full">
+                <ul class="flex flex-col gap-3 items-end md:gap-2 w-full">
+                    <li class="flex md:gap-1 flex-col md:flex-row w-full justify-end">
                         <label>Nom :</label>
-                        <input type="text" class="border-4 border-l-black border-t-black"/>
+                        <input type="text" class="border-4 border-l-black border-t-black px-2 hover:cursor-custompointer"/>
                     </li>
-                    <li>
+                    <li class="flex md:gap-1 flex-col md:flex-row w-full justify-end">
                         <label>Email :</label>
-                        <input type="text" class="border-4 border-l-black border-t-black"/>
+                        <input type="email" class="border-4 border-l-black border-t-black px-2 hover:cursor-custompointer"/>
                     </li>
-                    <li class="flex gap-1">
+                    <li class="flex md:gap-1 flex-col md:flex-row w-full justify-end">
                         <label>Message :</label>
-                        <textarea class="border-4 border-l-black border-t-black h-24 resize-none"/>
+                        <textarea class="border-4 border-l-black border-t-black h-24 resize-none px-2 hover:cursor-custompointer"/>
                     </li>
                 </ul>
             </form>
-            <button class="border-4 border-r-black border-b-black px-3 w-fit">Envoyer</button>
+            <input type="submit" class="border-4 border-r-black border-b-black px-3 w-fit hover:cursor-custompointer hover:bg-neutral-400 hover:border-l-black hover:border-t-black hover:border-r-white hover:border-b-white"></input>
         </article>
     </div>
 </section>

@@ -4,17 +4,17 @@ import WindowBar from './WindowBar.astro';
 const {id} = Astro.props
 ---
 
-<section id={id} class="border-4 border-r-black border-b-black w-[30rem] h-fit absolute hidden draggable">
+<section id={id} class="border-4 border-r-black border-b-black md:w-[30rem] md:h-fit absolute hidden draggable w-11/12 h-11/12">
     <WindowBar fenetre="A propos" image="/a_propos.png" alt="a_propos"/>
     <div class="bg-wdwd p-6 flex flex-col gap-6">
-        <p>Je m'appelle Titouan Moulin, étudiant en troisième année de BUT Métiers du Multimédia et de l’Internet (MMI). Passionné par la création sous toutes ses formes, je m’épanouis dans des projets mêlant design, communication et développement. Curieux et toujours en quête d’innovation, j’aime explorer de nouvelles idées pour concevoir des expériences uniques et captivantes.</p>
-        <article class="flex gap-3 items-center">
+        <p class="text-sm md:text-base">Je m'appelle Titouan Moulin, étudiant en troisième année de BUT Métiers du Multimédia et de l’Internet (MMI). Passionné par la création sous toutes ses formes, je m’épanouis dans des projets mêlant design, communication et développement. Curieux et toujours en quête d’innovation, j’aime explorer de nouvelles idées pour concevoir des expériences uniques et captivantes.</p>
+        <article class="flex md:gap-3 md:items-center flex-col md:flex-row items-start">
             <h3 class="font-bold">Téléchargez mon CV ici :</h3>
-            <button class="border-4 border-r-black border-b-black px-3">CV</button>
+            <a href="/CV/CV_Titouan_Moulin.pdf" download class="border-4 border-r-black border-b-black px-3 hover:cursor-custompointer hover:bg-neutral-400 hover:border-l-black hover:border-t-black hover:border-r-white hover:border-b-white">CV</a>
         </article>
-        <section class="border-4 border-l-black border-t-black p-4 flex flex-col gap-4 overflow-scroll h-80">
+        <section class="border-4 border-l-black border-t-black p-4 flex flex-col gap-4 overflow-scroll md:h-80 h-56">
             <p>Mes coups de coeurs :</p>
-            <ul class="grid grid-cols-3 gap-4">
+            <ul class="grid grid-cols-2 gap-4 md:grid-cols-3">
                 <li><img src="/cdc/music1.png" alt="jigsawfallingintoplaces" class="w-full"></li>
                 <li><img src="/cdc/music2.png" alt="letrangehistoiredemranderson" class="w-full"></li>
                 <li><img src="/cdc/music3.png" alt="wehadgoodtimestogether" class="w-full"></li>

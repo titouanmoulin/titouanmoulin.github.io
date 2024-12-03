@@ -4,20 +4,18 @@ import { getCollection } from 'astro:content';
 
 const {id} = Astro.props
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection('blog'))
 ---
 
-<section id={id} class="border-4 border-r-black border-b-black w-[25rem] h-fit absolute hidden draggable">
+<section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute hidden draggable w-11/12 h-11/12">
     <WindowBar fenetre="Projets" image="/projets.png" alt="projets"/>
-    <div class="bg-wdwd p-6 flex flex-col gap-6">
-        <ul class="border-4 border-l-black border-t-black h-72 bg-white overflow-y-scroll grid grid-cols-3 gap-4 p-4">
+    <div class="p-6 flex flex-col gap-6">
+        <ul class="border-4 border-l-black border-t-black h-[35rem] bg-white overflow-y-scroll grid grid-cols-2 gap-4 p-4 md:grid-cols-3 md:h-72">
             {
                 posts.map((post) => (
 
                     <li>
-                        <a href={`/blog/${post.slug}/`}>
+                        <a class="hover:cursor-custompointer" href={`/blog/${post.slug}/`}>
                             <img width={720} height={360} src={post.data.heroImage} alt="" />
                         </a>
                     </li>

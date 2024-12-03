@@ -5,7 +5,7 @@ import "../styles/global.css";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, heroImage} = Astro.props;
+const { title, heroImage, img1, img2, img3, img4, img5, img6} = Astro.props;
 ---
 
 <!doctype html>
@@ -14,21 +14,27 @@ const { title, heroImage} = Astro.props;
 		<meta charset="utf-8" />
 		<title>{title}</title>
 	</head>
-	<body class="h-screen font-W98">
+	<body class="h-screen font-W98 bg-wdwd">
 		<WindowBar fenetre={title} image="" alt="" />
-		<div class="bg-wdwd p-10 flex flex-col gap-6">
-			<article class="flex gap-6 items-center">
+		<div class="p-8 flex flex-col gap-6">
+			<article class="flex gap-10 items-center">
 				<img
 					src={heroImage}
 					alt="cover"
-					class="w-96 h-96 border-4 border-l-black border-t-black"
+					class="w-80 h-80 border-4 border-l-black border-t-black"
 				/>
 				<div class="flex flex-col gap-5">
 					<h2 class="font-bold text-2xl">{title}</h2>
 					<slot />
 				</div>
 			</article>
-			<ul class="border-4 border-l-black border-t-black h-72 bg-white overflow-y-scroll grid grid-cols-3 gap-4 p-4 w-full">
+			<ul class="border-4 border-l-black border-t-black bg-white overflow-x-scroll flex gap-4 p-4 w-full">
+				<li><img src={img1} alt="img1" class="w-full"></li>
+				<li><img src={img2} alt="img2" class="w-full"></li>
+				<li><img src={img3} alt="img3" class="w-full"></li>
+				<li><img src={img4} alt="img4" class="w-full"></li>
+				<li><img src={img5} alt="img5" class="w-full"></li>
+				<li><img src={img6} alt="img6" class="w-full"></li>
 			</ul>
 		</div>
 	</body>
