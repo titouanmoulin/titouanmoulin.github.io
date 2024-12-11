@@ -1,13 +1,19 @@
 ---
 import WindowBar from './WindowBar.astro';
-import Optimus from './Optimus.astro';
 
 const {id} = Astro.props
 ---
 
-<section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute  draggable w-11/12 h-11/12">
-    <WindowBar fenetre="Projets" image="/projets.png" alt="projets"/>
+<section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute hidden draggable w-11/12 h-11/12">
+    <WindowBar fenetre="Corbeille" image="/corbeille.png" alt="corbeille"/>
     <div class="p-6 flex flex-col gap-6">
-        <Optimus />
+        <ul class="border-4 border-l-black border-t-black h-[35rem] bg-white overflow-y-scroll grid grid-cols-2 gap-4 p-4 md:grid-cols-3 md:h-72">
+            <li>
+                <a href={`/optimus/`} class="hover:cursor-custompointer flex flex-col gap-2 items-center">
+                    <img src="/fichier.png" alt="fichier" />
+                    <p>Optimus.prime</p>
+                </a>
+            </li>
+        </ul>
     </div>
 </section>

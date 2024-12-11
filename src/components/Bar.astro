@@ -1,0 +1,72 @@
+---
+const d = new Date();
+let hour = d.getHours();
+let hours;
+if (hour < 10) {
+    hours = "0" + hour;
+} else {
+    hours = hour;
+}
+let minute = d.getMinutes();
+let minutes;
+if (minute < 10) {
+    minutes = "0" + minute;
+} else {
+    minutes = minute;
+}
+const time = hours + ":" + minutes;
+---
+
+<section
+    class="absolute w-full bg-wdwd bottom-0 left-0 flex justify-between border-t-2 py-[1px] px-[2px]"
+>
+    <button
+        class="border-[3px] border-b-black border-r-black p-1 flex items-center gap-2 hover:cursor-custompointer hover:bg-neutral-400 hover:border-l-black hover:border-t-black hover:border-r-white hover:border-b-white"
+        id="button"
+    >
+        <img src="/w98.png" alt="w98" class="w-5" />
+        <p class="font-bold">Démarrer</p>
+    </button>
+    <div id="menu" class="absolute bg-wdwd bottom-10 left-0 border-[3px] border-b-black border-r-black flex p-2 w-52 pl-10 close">
+        <div class="bg-wdbar text-white -rotate-90 absolute top-[107px] left-[-104px] w-[236px] px-1"><span class="font-bold">Portfolio</span>98</div>
+        <ul class="flex flex-col gap-4 w-full">
+            <li class="flex items-center gap-2">
+                <img src="projets.png" alt="projets" class="w-10">
+                <p>Projets</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <img src="a_propos.png" alt="about" class="w-10">
+                <p>A propos</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <img src="contact.png" alt="contact" class="w-10">
+                <p>Contact</p>
+            </li>
+            <li class="bg-neutral-500 h-[3px] border-b-2 w-full"></li>
+            <li class="flex items-center gap-2">
+                <img src="/user.png" alt="user" class="w-10">
+                <p>Titouan Moulin</p>
+            </li>
+        </ul>
+    </div>
+    <div
+        class="p-1 border-2 border-t-neutral-500 border-l-neutral-500 flex gap-2 justify-center items-center"
+    >
+        <img src="/date.png" alt="date" class="w-5" />
+        <p>{time}</p>
+    </div>
+</section>
+<style>
+    .close {
+        visibility: hidden;
+    }
+</style>
+<script>
+    var burgerMenu = document.getElementById("button");
+
+    var overlay = document.getElementById("menu");
+
+    burgerMenu?.addEventListener("click", function () {
+        overlay?.classList.toggle("close");
+    });
+</script>

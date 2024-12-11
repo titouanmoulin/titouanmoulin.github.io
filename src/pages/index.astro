@@ -3,6 +3,7 @@ import About from "../components/About.astro";
 import Contact from "../components/Contact.astro";
 import WorkList from "../components/WorkList.astro";
 import Bin from "../components/Bin.astro";
+import Bar from "../components/Bar.astro";
 import '../styles/global.css';
 ---
 
@@ -14,7 +15,7 @@ import '../styles/global.css';
 	</head>
 	<body class="bg-wdbg font-W98 h-screen p-8 flex cursor-customdefault">
 		<ul class="flex flex-col gap-8 text-white items-center">
-			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer">
+			<li class="flex flex-col items-center gap-1 hover:cursor-custompointer" id="bni">
 				<img src="/corbeille.png" alt="corbeille" class="w-16" />
 				<p class="text-base">Corbeille</p>
 			</li>
@@ -35,6 +36,7 @@ import '../styles/global.css';
 		<WorkList id="wlist" />
 		<About id="about" />
 		<Contact id="cont" />
+		<Bar />
 	</body>
 </html>
 <script>
@@ -47,56 +49,61 @@ import '../styles/global.css';
 	const projets = document.querySelector("#projets");
 	const wlist = document.getElementById("wlist");
 
+	const bni = document.querySelector("#bni");
+	const bin = document.getElementById("bin");
+
 	contact?.addEventListener("click", () => {
 		cont?.classList.remove("hidden");
 	});
 
 	apropos?.addEventListener("click", () => {
 		about?.classList.remove("hidden");
-		console.log(about);
 	});
 
 	projets?.addEventListener("click", () => {
 		wlist?.classList.remove("hidden");
 	});
 
+	bni?.addEventListener("click", () => {
+		bin?.classList.remove("hidden");
+	});
+
 	const fermer = document.querySelectorAll(".fermer");
 
-	fermer.forEach((f) => {
-		f.addEventListener("click", (e) => {
-			// console.log(e?.currentTarget?.parentElement?.parentElement?.parentElement);
-			e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
-				"hidden",
-			);
-		});
-	});
+	// fermer.forEach((f) => {
+	// 	f.addEventListener("click", (e) => {
+	// 		e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
+	// 			"hidden",
+	// 		);
+	// 	});
+	// });
 
-	document.querySelectorAll(".draggable").forEach((draggable) => {
-		const windowBar = draggable.querySelector("#wbar");
-		let isDragging = false;
-		let startX, startY, initialTop, initialRight;
+	// document.querySelectorAll(".draggable").forEach((draggable) => {
+	// 	const windowBar = draggable.querySelector("#wbar");
+	// 	let isDragging = false;
+	// 	let startX, startY, initialTop, initialRight;
 
-		windowBar?.addEventListener("mousedown", (e) => {
-			isDragging = true;
-			startX = e.clientX;
-			startY = e.clientY;
-			const rect = draggable.getBoundingClientRect();
-			initialTop = rect.top;
-			initialRight = window.innerWidth - rect.right;
-			e.preventDefault();
-		});
+	// 	windowBar?.addEventListener("mousedown", (e) => {
+	// 		isDragging = true;
+	// 		startX = e.clientX;
+	// 		startY = e.clientY;
+	// 		const rect = draggable.getBoundingClientRect();
+	// 		initialTop = rect.top;
+	// 		initialRight = window.innerWidth - rect.right;
+	// 		e.preventDefault();
+	// 	});
 
-		document.addEventListener("mousemove", (e) => {
-			if (isDragging) {
-				const deltaX = e.clientX - startX;
-				const deltaY = e.clientY - startY;
-				draggable.style.top = `${initialTop + deltaY}px`;
-				draggable.style.right = `${initialRight - deltaX}px`;
-			}
-		});
+	// 	document.addEventListener("mousemove", (e) => {
+	// 		if (isDragging) {
+	// 			const deltaX = e.clientX - startX;
+	// 			const deltaY = e.clientY - startY;
+	// 			draggable.style.top = `${initialTop + deltaY}px`;
+	// 			draggable.style.right = `${initialRight - deltaX}px`;
+	// 		}
+	// 	});
 
-		document.addEventListener("mouseup", () => {
-			isDragging = false;
-		});
-	});
+	// 	document.addEventListener("mouseup", () => {
+	// 		isDragging = false;
+	// 	});
+	// });
 </script>
