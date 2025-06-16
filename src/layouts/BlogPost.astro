@@ -53,23 +53,23 @@ const {
 				</div>
 			</div>
 			<ul id="liste" class="flex flex-wrap gap-6 p-6 w-[80%] bg-white border-2 border-r-black border-t-black border-l-black">
-				<li id="img1">
+				<li id="img1" class="hover:cursor-custompointer">
 					<img src={img1} alt={lg1} />
 					<p>{lg1}</p>
 				</li>
-				<li id="img2">
+				<li id="img2" class="hover:cursor-custompointer">
 					<img src={img2} alt={lg2} />
 					<p>{lg2}</p>
 				</li>
-				<li id="img3" style={class3}>
+				<li id="img3" style={class3} class="hover:cursor-custompointer">
 					<img src={img3} alt={lg3} />
 					<p>{lg3}</p>
 				</li>
-				<li id="img4" style={class4}>
+				<li id="img4" style={class4} class="hover:cursor-custompointer">
 					<img src={img4} alt={lg4} />
 					<p>{lg4}</p>
 				</li>
-				<li id="imgvid" style={classvid}>
+				<li id="imgvid" style={classvid} class="hover:cursor-custompointer">
 					<img src={imgvid} alt={lgvid} />
 					<p>{lgvid}</p>
 				</li>
@@ -78,7 +78,7 @@ const {
 
 		<div
 			id="overlay"
-			class="hidden fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] z-[2]"
+			class="hidden fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] z-[2] hover:cursor-custompointer"
 		>
 			<img
 				src={img1}
