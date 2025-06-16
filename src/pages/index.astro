@@ -70,40 +70,40 @@ import '../styles/global.css';
 
 	const fermer = document.querySelectorAll(".fermer");
 
-	// fermer.forEach((f) => {
-	// 	f.addEventListener("click", (e) => {
-	// 		e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
-	// 			"hidden",
-	// 		);
-	// 	});
-	// });
+	fermer.forEach((f) => {
+		f.addEventListener("click", (e) => {
+			e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
+				"hidden",
+			);
+		});
+	});
 
-	// document.querySelectorAll(".draggable").forEach((draggable) => {
-	// 	const windowBar = draggable.querySelector("#wbar");
-	// 	let isDragging = false;
-	// 	let startX, startY, initialTop, initialRight;
+	document.querySelectorAll(".draggable").forEach((draggable) => {
+		const windowBar = draggable.querySelector("#wbar");
+		let isDragging = false;
+		let startX, startY, initialTop, initialRight;
 
-	// 	windowBar?.addEventListener("mousedown", (e) => {
-	// 		isDragging = true;
-	// 		startX = e.clientX;
-	// 		startY = e.clientY;
-	// 		const rect = draggable.getBoundingClientRect();
-	// 		initialTop = rect.top;
-	// 		initialRight = window.innerWidth - rect.right;
-	// 		e.preventDefault();
-	// 	});
+		windowBar?.addEventListener("mousedown", (e) => {
+			isDragging = true;
+			startX = e.clientX;
+			startY = e.clientY;
+			const rect = draggable.getBoundingClientRect();
+			initialTop = rect.top;
+			initialRight = window.innerWidth - rect.right;
+			e.preventDefault();
+		});
 
-	// 	document.addEventListener("mousemove", (e) => {
-	// 		if (isDragging) {
-	// 			const deltaX = e.clientX - startX;
-	// 			const deltaY = e.clientY - startY;
-	// 			draggable.style.top = `${initialTop + deltaY}px`;
-	// 			draggable.style.right = `${initialRight - deltaX}px`;
-	// 		}
-	// 	});
+		document.addEventListener("mousemove", (e) => {
+			if (isDragging) {
+				const deltaX = e.clientX - startX;
+				const deltaY = e.clientY - startY;
+				draggable.style.top = `${initialTop + deltaY}px`;
+				draggable.style.right = `${initialRight - deltaX}px`;
+			}
+		});
 
-	// 	document.addEventListener("mouseup", () => {
-	// 		isDragging = false;
-	// 	});
-	// });
+		document.addEventListener("mouseup", () => {
+			isDragging = false;
+		});
+	});
 </script>

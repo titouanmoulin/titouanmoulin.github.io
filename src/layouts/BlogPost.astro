@@ -6,7 +6,25 @@ import "../styles/global.css";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, heroImage, img1, img2, img3, img4, img5, img6 } = Astro.props;
+const {
+	title,
+	heroImage,
+	img1,
+	img2,
+	img3,
+	img4,
+	imgvid,
+	lg0,
+	lg1,
+	lg2,
+	lg3,
+	lg4,
+	lgvid,
+	video,
+	class3,
+	class4,
+	classvid,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -15,7 +33,9 @@ const { title, heroImage, img1, img2, img3, img4, img5, img6 } = Astro.props;
 		<meta charset="utf-8" />
 		<title>{title}</title>
 	</head>
-	<body class="font-W98 bg-[url('/background/bgtestp.png')] bg-repeat h-screen overflow-hidden">
+	<body
+		class="font-W98 bg-[url('/background/bgtestp.png')] bg-repeat h-screen overflow-hidden"
+	>
 		<WindowBar
 			fenetre="Internet Explorator"
 			image="/internet.png"
@@ -23,50 +43,71 @@ const { title, heroImage, img1, img2, img3, img4, img5, img6 } = Astro.props;
 		/>
 		<SearchBar nom={title} />
 		<div
-			class="p-8 flex flex-col gap-6 items-center border-2 border-black overflow-scroll h-full"
+			class="p-8 flex flex-col gap-12 items-center border-2 border-black overflow-scroll h-full pb-24"
 		>
-			<div class="flex flex-col gap-5 items-center w-3/4 text-center">
-				<h2 class="font-bold text-2xl">{title}</h2>
-				<slot />
+			<div class="flex gap-10 items-center justify-center">
+				<img src={heroImage} alt={lg0} class="border-2 border-black" />
+				<div class="flex flex-col gap-5 w-[30%]">
+					<h2 class="font-bold text-2xl">{title}</h2>
+					<slot />
+				</div>
 			</div>
-			<ul
-				class="flex flex-col gap-6 p-4"
-			>
-				<li>
-					<img src={heroImage} alt="img0" />
-					<p>Main</p>
+			<ul id="liste" class="flex flex-wrap gap-6 p-6 w-[80%] bg-white border-2 border-r-black border-t-black border-l-black">
+				<li id="img1">
+					<img src={img1} alt={lg1} />
+					<p>{lg1}</p>
 				</li>
-				<li>
-					<img src={img1} alt="img1" />
-					<p>Bébé</p>
+				<li id="img2">
+					<img src={img2} alt={lg2} />
+					<p>{lg2}</p>
 				</li>
-				<li>
-					<img src={img2} alt="img2" />
-					<p>Eclair</p>
+				<li id="img3" style={class3}>
+					<img src={img3} alt={lg3} />
+					<p>{lg3}</p>
 				</li>
-				<li>
-					<img src={img3} alt="img3" />
-					<p>Fleur</p>
+				<li id="img4" style={class4}>
+					<img src={img4} alt={lg4} />
+					<p>{lg4}</p>
 				</li>
-				<li>
-					<img src={img4} alt="img4" />
-					<p>Goutte</p>
-				</li>
-				<li>
-					<img src={img5} alt="img5" />
-					<p>Oiseau</p>
-				</li>
-				<li>
-					<img src={img6} alt="img6" />
-					<p>Drapeau</p>
+				<li id="imgvid" style={classvid}>
+					<img src={imgvid} alt={lgvid} />
+					<p>{lgvid}</p>
 				</li>
 			</ul>
+		</div>
+
+		<div
+			id="overlay"
+			class="hidden fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] z-[2]"
+		>
+			<img
+				src={img1}
+				alt={lg1}
+				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] max-w-[80%]"
+			/>
+			<img
+				src={img2}
+				alt={lg2}
+				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] max-w-[80%]"
+			/>
+			<img
+				src={img3}
+				alt={lg3}
+				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] max-w-[80%]"
+			/>
+			<img
+				src={img4}
+				alt={lg4}
+				class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] max-w-[80%]"
+			/>
+			<video src={video} controls class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] max-w-[80%]"></video>
 		</div>
 	</body>
 </html>
 <style>
-	img {
+	#liste img {
 		height: 15rem;
+		border: black 2px solid;
 	}
 
 	li {
@@ -82,4 +123,67 @@ const { title, heroImage, img1, img2, img3, img4, img5, img6 } = Astro.props;
 	fermer?.addEventListener("click", () => {
 		location.href = "/";
 	});
+
+	const overlay = document.getElementById("overlay");
+	overlay?.addEventListener("click", () => {
+		overlay?.classList.remove("block");
+		overlay?.classList.add("hidden");
+	});
+
+	const img1 = document.getElementById("img1");
+	img1?.addEventListener("click", () => {
+		overlay?.classList.remove("hidden");
+		overlay?.classList.add("block");
+		overlay?.children[0].classList.remove("hidden");
+		overlay?.children[1].classList.add("hidden");
+		overlay?.children[2].classList.add("hidden");
+		overlay?.children[3].classList.add("hidden");
+		overlay?.children[4].classList.add("hidden");
+	});
+
+	const img2 = document.getElementById("img2");
+	img2?.addEventListener("click", () => {
+		overlay?.classList.remove("hidden");
+		overlay?.classList.add("block");
+		overlay?.children[0].classList.add("hidden");
+		overlay?.children[1].classList.remove("hidden");
+		overlay?.children[2].classList.add("hidden");
+		overlay?.children[3].classList.add("hidden");
+		overlay?.children[4].classList.add("hidden");
+	});
+
+	const img3 = document.getElementById("img3");
+	img3?.addEventListener("click", () => {
+		overlay?.classList.remove("hidden");
+		overlay?.classList.add("block");
+		overlay?.children[0].classList.add("hidden");
+		overlay?.children[1].classList.add("hidden");
+		overlay?.children[2].classList.remove("hidden");
+		overlay?.children[3].classList.add("hidden");
+		overlay?.children[4].classList.add("hidden");
+	});
+
+	const img4 = document.getElementById("img4");
+	img4?.addEventListener("click", () => {
+		overlay?.classList.remove("hidden");
+		overlay?.classList.add("block");
+		overlay?.children[0].classList.add("hidden");
+		overlay?.children[1].classList.add("hidden");
+		overlay?.children[2].classList.add("hidden");
+		overlay?.children[3].classList.remove("hidden");
+		overlay?.children[4].classList.add("hidden");
+	});
+
+	const imgvid = document.getElementById("imgvid");
+	imgvid?.addEventListener("click", () => {
+		overlay?.classList.remove("hidden");
+		overlay?.classList.add("block");
+		overlay?.children[0].classList.add("hidden");
+		overlay?.children[1].classList.add("hidden");
+		overlay?.children[2].classList.add("hidden");
+		overlay?.children[3].classList.add("hidden");
+		overlay?.children[4].classList.remove("hidden");
+	});
+
+	const liste = document.getElementById("liste");
 </script>

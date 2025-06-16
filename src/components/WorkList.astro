@@ -9,15 +9,14 @@ const posts = (await getCollection('blog'))
 
 <section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute hidden draggable w-11/12 h-11/12">
     <WindowBar fenetre="Projets" image="/projets.png" alt="projets"/>
-    <div class="p-6 flex flex-col gap-6">
-        <ul class="border-4 border-l-black border-t-black h-[35rem] bg-white overflow-y-scroll grid grid-cols-2 gap-4 p-4 md:grid-cols-3 md:h-72">
+    <div class="p-6 flex flex-col gap-6 md:h-72 h-[35rem]">
+        <ul class="border-4 border-l-black border-t-black bg-white overflow-y-scroll grid grid-cols-2 md:grid-cols-3">
             {
                 posts.map((post) => (
 
                     <li>
-                        <a class="hover:cursor-custompointer flex flex-col gap-2 items-center" href={`/blog/${post.slug}/`}>
-                            <img width={720} height={360} src={post.data.heroImage} alt="" />
-                            <p>{post.data.title}</p>
+                        <a class="hover:cursor-custompointer" href={`/blog/${post.slug}/`}>
+                            <img src={post.data.heroImage} alt="" class="w-[720px] aspect-square" />
                         </a>
                     </li>
                 ))
