@@ -7,7 +7,7 @@ const {id} = Astro.props
 const posts = (await getCollection('blog'))
 ---
 
-<section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute hidden draggable w-11/12 h-11/12">
+<section id={id} class="bg-wdwd border-4 border-r-black border-b-black md:w-[25rem] md:h-fit absolute hidden w-11/12 h-11/12 draggable">
     <WindowBar fenetre="Projets" image="/projets.png" alt="projets"/>
     <div class="p-6 flex flex-col gap-6 md:h-72 h-[35rem]">
         <ul class="border-4 border-l-black border-t-black bg-white overflow-y-scroll grid grid-cols-2 md:grid-cols-3">

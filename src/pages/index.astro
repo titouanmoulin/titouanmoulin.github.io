@@ -68,42 +68,57 @@ import '../styles/global.css';
 		bin?.classList.remove("hidden");
 	});
 
-	// const fermer = document.querySelectorAll(".fermer");
+	const fermerprojets = wlist?.querySelector(".fermer");
+	fermerprojets?.addEventListener("click", () => {
+		wlist?.classList.add("hidden");
+	});
 
-	// fermer.forEach((f) => {
-	// 	f.addEventListener("click", (e) => {
-	// 		e?.currentTarget?.parentElement?.parentElement?.parentElement?.classList.add(
-	// 			"hidden",
-	// 		);
-	// 	});
-	// });
+	const fermerabout = about?.querySelector(".fermer");
+	fermerabout?.addEventListener("click", () => {
+		about?.classList.add("hidden");
+	});
 
-	// document.querySelectorAll(".draggable").forEach((draggable) => {
-	// 	const windowBar = draggable.querySelector("#wbar");
-	// 	let isDragging = false;
-	// 	let startX, startY, initialTop, initialRight;
+	const fermercontact = cont?.querySelector(".fermer");
+	fermercontact?.addEventListener("click", () => {
+		cont?.classList.add("hidden");
+	});
 
-	// 	windowBar?.addEventListener("mousedown", (e) => {
-	// 		isDragging = true;
-	// 		startX = e.clientX;
-	// 		startY = e.clientY;
-	// 		const rect = draggable.getBoundingClientRect();
-	// 		initialTop = rect.top;
-	// 		initialRight = window.innerWidth - rect.right;
-	// 		e.preventDefault();
-	// 	});
+	const fermerbin = bin?.querySelector(".fermer");
+	fermerbin?.addEventListener("click", () => {
+		bin?.classList.add("hidden");
+	});
 
-	// 	document.addEventListener("mousemove", (e) => {
-	// 		if (isDragging) {
-	// 			const deltaX = e.clientX - startX;
-	// 			const deltaY = e.clientY - startY;
-	// 			draggable.style.top = `${initialTop + deltaY}px`;
-	// 			draggable.style.right = `${initialRight - deltaX}px`;
-	// 		}
-	// 	});
+	let isDragging = false;
+	let startX: number, startY: number, initialTop: number, initialRight: number;
+	let currentDraggable: HTMLElement | null = null;
 
-	// 	document.addEventListener("mouseup", () => {
-	// 		isDragging = false;
-	// 	});
-	// });
+	document.querySelectorAll(".draggable").forEach((draggable) => {
+		const windowBar = draggable.querySelector("#wbar");
+
+		windowBar?.addEventListener("mousedown", (event) => {
+			isDragging = true;
+			currentDraggable = draggable as HTMLElement;
+			const e = event as MouseEvent;
+			startX = e.clientX;
+			startY = e.clientY;
+			const rect = currentDraggable.getBoundingClientRect();
+			initialTop = rect.top;
+			initialRight = window.innerWidth - rect.right;
+			e.preventDefault();
+		});
+	});
+
+	document.addEventListener("mousemove", (e) => {
+		if (isDragging && currentDraggable) {
+			const deltaX = e.clientX - startX;
+			const deltaY = e.clientY - startY;
+			currentDraggable.style.top = `${initialTop + deltaY}px`;
+			currentDraggable.style.right = `${initialRight - deltaX}px`;
+		}
+	});
+
+	document.addEventListener("mouseup", () => {
+		isDragging = false;
+		currentDraggable = null;
+	});
 </script>
